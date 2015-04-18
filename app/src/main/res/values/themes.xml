@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<style name="Theme.Todo.Light" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+		<item name="android:windowBackground">@color/global_bg_back</item>
+
+		<item name="colorPrimary">@color/global_color_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_primary_dark</item>
+		<item name="colorAccent">@color/global_color_accent</item>
+
+		<item name="android:textColorPrimary">@color/global_text_primary</item>
+		<item name="android:textColorSecondary">@color/global_text_secondary</item>
+	</style>
+
+</resources>

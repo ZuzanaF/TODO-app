@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Czechitas TODO</string>
+
+	<string name="title_task_detail">Create task</string>
+
+	<string name="menu_add">Create task</string>
+
+	<string name="placeholder_empty">No tasks,\ncreate a new one</string>
+
+	<string name="activity_task_list_delete_title">Delete</string>
+	<string name="activity_task_list_delete_message">Do you really want to delete this task?</string>
+
+	<string name="activity_task_detail_title">Title</string>
+	<string name="activity_task_detail_button">Create</string>
+	<string name="activity_task_detail_validation_title">Missing title</string>
+	<string name="activity_task_detail_validation_date">Selected date is in the past</string>
+</resources>
