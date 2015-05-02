@@ -3,7 +3,7 @@ package cz.czechitas.todo.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +18,7 @@ import cz.czechitas.todo.database.dao.TaskDAO;
 import cz.czechitas.todo.entity.TaskEntity;
 
 
-public class TaskDetailActivity extends ActionBarActivity
+public class TaskDetailActivity extends AppCompatActivity
 {
 	@Override
 	public void onCreate(Bundle savedInstanceState)

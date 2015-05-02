@@ -5,7 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,7 +23,7 @@ import cz.czechitas.todo.database.dao.TaskDAO;
 import cz.czechitas.todo.entity.TaskEntity;
 
 
-public class TaskListActivity extends ActionBarActivity
+public class TaskListActivity extends AppCompatActivity
 {
 	private static final int REQUEST_FOR_ADD_TASK = 0;
 
