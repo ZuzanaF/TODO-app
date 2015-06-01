@@ -16,6 +16,17 @@ Návod na použití databáze
 
 - Zkopírovat do projektu celý package "database"
 - Upravit ve všech třídách package name
+- Přidat do _build.gradle_ Maven repozitář Sonatype.org:
+
+```groovy
+allprojects {
+	repositories {
+		...
+		maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+	}
+}
+```
+
 - Přidat do _/app/build.gradle_ knihovnu:
 
 ```groovy
