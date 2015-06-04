@@ -9,11 +9,10 @@ import java.util.List;
 import cz.czechitas.todo.database.model.TaskModel;
 import cz.czechitas.todo.entity.TaskEntity;
 
-
 public class TaskDAO implements DAO<TaskEntity>
 {
 	@Override
-	public long create(TaskEntity task)
+	public Long create(TaskEntity task)
 	{
 		TaskModel m = new TaskModel();
 		m.set(task);
@@ -22,7 +21,7 @@ public class TaskDAO implements DAO<TaskEntity>
 
 
 	@Override
-	public TaskEntity read(long id)
+	public TaskEntity read(Long id)
 	{
 		TaskModel m = new Select().from(TaskModel.class).where("Id=?", id).executeSingle();
 		return m.toEntity();
@@ -70,7 +69,7 @@ public class TaskDAO implements DAO<TaskEntity>
 
 
 	@Override
-	public long update(TaskEntity task)
+	public Long update(TaskEntity task)
 	{
 		TaskModel m = new Select().from(TaskModel.class).where("Id=?", task.getId()).executeSingle();
 		m.set(task);
@@ -79,9 +78,9 @@ public class TaskDAO implements DAO<TaskEntity>
 
 
 	@Override
-	public void delete(long id)
+	public void delete(TaskEntity task)
 	{
-		new Delete().from(TaskModel.class).where("Id=?", id).execute();
+		new Delete().from(TaskModel.class).where("Id=?", task.getId()).execute();
 	}
 
 

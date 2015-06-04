@@ -11,7 +11,9 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import cz.czechitas.todo.R;
 import cz.czechitas.todo.database.dao.TaskDAO;
@@ -67,21 +69,27 @@ public class TaskDetailActivity extends AppCompatActivity
 			public void onClick(View v)
 			{
 				String title = titleEditText.getText().toString();
-				Date date = new Date(datePicker.getYear() - 1900, datePicker.getMonth(), datePicker.getDayOfMonth());
-				long yesterdayTime = System.currentTimeMillis() - 86400000l; // time before 24hrs
-				long selectedTime = date.getTime(); // selected date at 0:00
+				Calendar calendar = new GregorianCalendar(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(), 0, 0); // selected date at 0:00
+				Date selectedDate = calendar.getTime();
 
-				if(title.trim().equals(""))
+				calendar = Calendar.getInstance();
+				calendar.set(Calendar.HOUR_OF_DAY, 0);
+				calendar.set(Calendar.MINUTE, 0);
+				calendar.set(Calendar.SECOND, 0);
+				calendar.set(Calendar.MILLISECOND, 0);
+				Date startOfToday = calendar.getTime();
+
+				if(title.trim().isEmpty())
 				{
 					Toast.makeText(TaskDetailActivity.this, R.string.activity_task_detail_validation_title, Toast.LENGTH_LONG).show();
 				}
-				else if(selectedTime < yesterdayTime)
+				else if(selectedDate.before(startOfToday))
 				{
 					Toast.makeText(TaskDetailActivity.this, R.string.activity_task_detail_validation_date, Toast.LENGTH_LONG).show();
 				}
 				else
 				{
-					createTask(title, date);
+					createTask(title, selectedDate);
 					finishActivity();
 				}
 			}
