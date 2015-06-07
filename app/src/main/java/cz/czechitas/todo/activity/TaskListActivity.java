@@ -103,8 +103,8 @@ public class TaskListActivity extends AppCompatActivity
 	private void bindData()
 	{
 		// reference
-		ListView listView = (ListView) findViewById(R.id.list);
-		ViewGroup emptyViewGroup = (ViewGroup) findViewById(R.id.empty);
+		ListView listView = (ListView) findViewById(android.R.id.list);
+		View emptyViewGroup = findViewById(android.R.id.empty);
 
 		// adapter
 		if(mAdapter==null)
@@ -171,8 +171,8 @@ public class TaskListActivity extends AppCompatActivity
 
 	private void deleteTask(int position)
 	{
-		long taskId = mList.get(position).getId();
+		TaskEntity task = mList.get(position);
 		TaskDAO dao = new TaskDAO();
-		dao.delete(taskId);
+		dao.delete(task);
 	}
 }

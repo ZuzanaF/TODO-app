@@ -33,18 +33,17 @@ public class TaskListAdapter extends BaseAdapter
 	public View getView(final int position, View convertView, ViewGroup parent)
 	{
 		// inflate view
-		View view = convertView;
-		if(view == null) 
+		if(convertView == null)
 		{
 			LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			view = inflater.inflate(R.layout.activity_task_list_item, parent, false);
+			convertView = inflater.inflate(R.layout.activity_task_list_item, parent, false);
 			
 			// view holder
 			ViewHolder holder = new ViewHolder();
-			holder.titleTextView = (TextView) view.findViewById(R.id.title);
-			holder.dateTextView = (TextView) view.findViewById(R.id.date);
-			holder.statusCheckBox = (CheckBox) view.findViewById(R.id.status);
-			view.setTag(holder);
+			holder.titleTextView = (TextView) convertView.findViewById(R.id.title);
+			holder.dateTextView = (TextView) convertView.findViewById(R.id.date);
+			holder.statusCheckBox = (CheckBox) convertView.findViewById(R.id.status);
+			convertView.setTag(holder);
 		}
 		
 		// entity
@@ -53,12 +52,12 @@ public class TaskListAdapter extends BaseAdapter
 		if(task != null)
 		{
 			// view holder
-			ViewHolder holder = (ViewHolder) view.getTag();
+			ViewHolder holder = (ViewHolder) convertView.getTag();
 			
 			// content
 			holder.statusCheckBox.setChecked(task.isStatus());
 			holder.titleTextView.setText(task.getTitle());
-			holder.dateTextView.setText(DateConvertor.dateToString(task.getDate(), "d.M.yyyy"));
+			holder.dateTextView.setText(DateConvertor.dateToString(task.getDate(), "d. M. yyyy"));
 
 			// checkbox
 			holder.statusCheckBox.setOnClickListener(new View.OnClickListener()
@@ -79,7 +78,7 @@ public class TaskListAdapter extends BaseAdapter
 			});
 		}
 		
-		return view;
+		return convertView;
 	}
 	
 	

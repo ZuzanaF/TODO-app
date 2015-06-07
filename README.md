@@ -59,7 +59,7 @@ ActiveAndroid.initialize(this);
 Práce s databází
 ----------------
 
-- Vytvoříme is DAO objekt:
+- Vytvoříme si DAO objekt:
 
 ```java
 TaskDAO dao = new TaskDAO();
