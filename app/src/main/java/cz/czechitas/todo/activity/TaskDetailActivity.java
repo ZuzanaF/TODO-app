@@ -104,8 +104,7 @@ public class TaskDetailActivity extends AppCompatActivity
 		task.setDate(date);
 		task.setStatus(false);
 
-		TaskDAO dao = new TaskDAO();
-		dao.create(task);
+		TaskDAO.getInstance().create(task);
 	}
 
 

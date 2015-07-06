@@ -11,6 +11,19 @@ import cz.czechitas.todo.entity.TaskEntity;
 
 public class TaskDAO implements DAO<TaskEntity>
 {
+
+	private static TaskDAO sInstance;
+
+	private TaskDAO() {}
+
+	public static TaskDAO getInstance() {
+		if (sInstance == null)
+		{
+			sInstance = new TaskDAO();
+		}
+		return sInstance;
+	}
+
 	@Override
 	public Long create(TaskEntity task)
 	{

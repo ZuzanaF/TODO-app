@@ -95,8 +95,7 @@ public class TaskListActivity extends AppCompatActivity
 		mList.clear();
 
 		// load tasks
-		TaskDAO dao = new TaskDAO();
-		mList = dao.readAll();
+		mList = TaskDAO.getInstance().readAll();
 	}
 
 
@@ -172,7 +171,6 @@ public class TaskListActivity extends AppCompatActivity
 	private void deleteTask(int position)
 	{
 		TaskEntity task = mList.get(position);
-		TaskDAO dao = new TaskDAO();
-		dao.delete(task);
+		TaskDAO.getInstance().delete(task);
 	}
 }

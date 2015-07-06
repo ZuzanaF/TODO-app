@@ -115,8 +115,7 @@ public class TaskListAdapter extends BaseAdapter
 
 	private void updateTask(TaskEntity task)
 	{
-		TaskDAO dao = new TaskDAO();
-		dao.update(task);
+		TaskDAO.getInstance().update(task);
 	}
 	
 	
